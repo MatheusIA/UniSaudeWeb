@@ -15,6 +15,8 @@ import UniSaudeWeb.model.Aparelhos;
 import UniSaudeWeb.model.NivelAluno;
 import UniSaudeWeb.model.TipoTreino;
 import UniSaudeWeb.model.Treino;
+import br.computacao.escolaWeb.dao.CursoDao;
+import br.computacao.escolaWeb.model.Curso;
 
 /**
  * Servlet implementation class ServletTreino
@@ -35,8 +37,15 @@ public class ServletTreino extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		TreinoDao dao = new TreinoDao();
+		
+		long treinoid = Long.parseLong(request.getParameter("idTreino"));
+		Treino deletarTreino = dao.findById(Treino.class, treinoid).get();
+		
+		dao.delete(deletarTreino);		
+	
+	response.sendRedirect("consultaTreino.jsp");
 	}
 
 	/**
@@ -46,7 +55,7 @@ public class ServletTreino extends HttpServlet {
 
 		TreinoDao dao = new TreinoDao();
 		
-		if (request.getParameter("idTreino") == null) {		
+		if (request.getParameter("treinoid") == null) {		
 			
 			Treino novoTreino = new Treino();
 			novoTreino.setNomeExecicio(request.getParameter("nomeExercicio"));
@@ -55,7 +64,7 @@ public class ServletTreino extends HttpServlet {
 			dao.save(novoTreino);
 		}
 		else {
-			long treinoid = Long.parseLong(request.getParameter("idTreino"));
+			long treinoid = Long.parseLong(request.getParameter("treinoid"));
 			Treino treinos = dao.findById(Treino.class, treinoid).get();
 			
 			treinos.setNomeExecicio(request.getParameter("nomeExercicio"));

@@ -54,13 +54,13 @@
 				<td>
 							
 					<a class="btn btn-secondary btn-sm" 
-						href="editCurso.jsp?id=${aluno.id}">Editar</a>	
+						href="editAparelho.jsp?id=<%=aparelho.getId()%>">Editar</a>	
 					
 				</td>
 					
 				<td>
 					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerAparelhos?id=${aluno.id}">Excluir</a>
+						href="${pageContext.request.contextPath}/controllerAparelhos?id=<%=aparelho.getId()%>">Excluir</a>
 				</td>
 			</tr>
 			<%

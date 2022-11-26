@@ -12,6 +12,8 @@ import UniSaudeWeb.dao.AparelhosDao;
 import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Aparelhos;
 import UniSaudeWeb.model.NivelAluno;
+import br.computacao.escolaWeb.dao.CursoDao;
+import br.computacao.escolaWeb.model.Curso;
 
 /**
  * Servlet implementation class ServletAparelhos
@@ -32,8 +34,15 @@ public class ServletAparelhos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		AparelhosDao dao = new AparelhosDao();
+		
+		long aparelhoid = Long.parseLong(request.getParameter("id"));
+		Aparelhos deletarAparelhos = dao.findById(Aparelhos.class, aparelhoid).get();
+		
+		dao.delete(deletarAparelhos);		
+	
+	response.sendRedirect("consultaAparelho.jsp");
 	}
 
 	/**
@@ -43,7 +52,7 @@ public class ServletAparelhos extends HttpServlet {
 
 		AparelhosDao dao = new AparelhosDao();
 		
-		if (request.getParameter("idAparelho") == null) {		
+		if (request.getParameter("aparelhoid") == null) {		
 			
 			Aparelhos novoAparelho = new Aparelhos();
 			novoAparelho.setNomeAparelho(request.getParameter("nomeAparelho"));
@@ -52,7 +61,7 @@ public class ServletAparelhos extends HttpServlet {
 			dao.save(novoAparelho);
 		}
 		else {
-			long aparelhoid = Long.parseLong(request.getParameter("id"));
+			long aparelhoid = Long.parseLong(request.getParameter("aparelhoid"));
 			Aparelhos aparelhos = dao.findById(Aparelhos.class, aparelhoid).get();
 			
 			aparelhos.setNomeAparelho(request.getParameter("nomeAparelho"));

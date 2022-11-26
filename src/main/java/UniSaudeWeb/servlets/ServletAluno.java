@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import UniSaudeWeb.dao.AlunoDao;
 import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.NivelAluno;
+import br.computacao.escolaWeb.dao.CursoDao;
+import br.computacao.escolaWeb.model.Curso;
 import UniSaudeWeb.*;
 
 
@@ -32,8 +34,15 @@ public class ServletAluno extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		AlunoDao dao = new AlunoDao();
+		
+		long alunoid = Long.parseLong(request.getParameter("id"));
+		Aluno deletarAluno = dao.findById(Aluno.class, alunoid).get();
+		
+		dao.delete(deletarAluno);		
+	
+	response.sendRedirect("consultaAluno.jsp");
 	}
 
 	/**
@@ -43,7 +52,7 @@ public class ServletAluno extends HttpServlet {
 		
 		AlunoDao dao = new AlunoDao();
 		
-		if (request.getParameter("idAluno") == null) {		
+		if (request.getParameter("alunoid") == null) {		
 			
 			Aluno novoAluno = new Aluno();
 			novoAluno.setNome(request.getParameter("nome"));
@@ -53,12 +62,12 @@ public class ServletAluno extends HttpServlet {
 			dao.save(novoAluno);
 		}
 		else {
-			long alunoid = Long.parseLong(request.getParameter("idAluno"));
+			long alunoid = Long.parseLong(request.getParameter("alunoid"));
 			Aluno aluno = dao.findById(Aluno.class, alunoid).get();
 			
 			aluno.setNome(request.getParameter("nome"));
 			aluno.setEmail(request.getParameter("email"));
-			aluno.setNivelaluno(NivelAluno.valueOf(request.getParameter("nivelALuno").toUpperCase()));
+			aluno.setNivelaluno(NivelAluno.valueOf(request.getParameter("nivelAluno").toUpperCase()));
 			
 			dao.update(aluno);
 			}

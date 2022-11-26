@@ -50,18 +50,19 @@
 				
 				<td><%=aluno.getNome()%></td>  
 				
+				<td><%= aluno.getEmail()%>
+				
 				<td><%=aluno.getNivelaluno() %></td>
 				
 				<td>
 							
 					<a class="btn btn-secondary btn-sm" 
-						href="editCurso.jsp?id=${aluno.id}">Editar</a>	
-					
+						href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a>	
 				</td>
 					
 				<td>
 					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerAluno?id=${aluno.id}">Excluir</a>
+						href="${pageContext.request.contextPath}/controllerAluno?id=<%=aluno.getId()%>">Excluir</a>
 				</td>
 			</tr>
 			<%

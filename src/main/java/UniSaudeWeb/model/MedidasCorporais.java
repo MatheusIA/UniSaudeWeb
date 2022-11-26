@@ -13,7 +13,7 @@ public class MedidasCorporais{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private int idMedida;
+		private long idMedida;
 		
 		@ManyToOne(fetch = FetchType.LAZY)
 		private Aluno aluno;
@@ -26,10 +26,11 @@ public class MedidasCorporais{
 		private double Altura;
 		private Date DataAvaliacao;
 		
-		public int getIdMedida() {
+		
+		public long getIdMedida() {
 			return idMedida;
 		}
-		public void setIdMedida(int idMedida) {
+		public void setIdMedida(long idMedida) {
 			this.idMedida = idMedida;
 		}
 		public Aluno getAluno() {
