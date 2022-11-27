@@ -1,3 +1,4 @@
+
 <%@page import="UniSaudeWeb.model.MedidasCorporais"%>
 <%@page import="UniSaudeWeb.dao.MedidasCorporaisDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -16,12 +17,12 @@
 </head>
 <body>
 
-<%
-	long medidaid = Long.parseLong(request.getParameter("idMedida"));
-	MedidasCorporaisDao dao = new MedidasCorporaisDao();
-	MedidasCorporais consultaMedidas = dao.findById(MedidasCorporais.class, medidaid).get();
-
-%>
+	<%
+		long medidaid = Long.parseLong(request.getParameter("id"));
+		MedidasCorporaisDao dao = new MedidasCorporaisDao();
+		MedidasCorporais consultaMedidas = dao.findById(MedidasCorporais.class, medidaid).get();
+	
+	%>
 
 	<h1>Editar Curso</h1>
 	
@@ -29,7 +30,7 @@
 		<input type="hidden" name="medidaid" value="<%= medidaid %>"/>
 			
 			<label>Abdomen</label>
-			<input type="text" name="abdomen" value="<%= consultaMedidas.getAbdomen() %>"/>
+			<input type="text" name="abdomen" value="<%= consultaMedidas.getAbdomen()%>"/>
 			<br/>
 			
 			<label>Altura</label>
@@ -38,14 +39,6 @@
 			
 			<label>Braco</label>
 			<input type="text" name="braco" value="<%= consultaMedidas.getBraco() %>"/>
-			<br/>
-			
-			<label>Data Avaliação</label>
-			<input type="text" name="" value="<%= consultaMedidas.getDataAvaliacao() %>"/>
-			<br/>
-			
-			<label>IMC</label>
-			<input type="text" name="" value="<%= consultaMedidas.getIMC() %>"/>
 			<br/>
 			
 			<label>Perna</label>

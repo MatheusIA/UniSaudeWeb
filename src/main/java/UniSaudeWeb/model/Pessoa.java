@@ -30,15 +30,51 @@ public class Pessoa {
 	private String email;
 	private int idade;	
 	
-	@Embedded
-	@AttributeOverrides({
-		@AttributeOverride(name = "rua", column = @Column(name = "endereço_rua")),
-		@AttributeOverride(name = "numero", column = @Column(name = "endereço_numero")),
-		@AttributeOverride(name = "bairro", column = @Column(name = "endereço_bairro")),
-		@AttributeOverride(name = "cidade", column = @Column(name = "endereço_cidade")),
-		@AttributeOverride(name = "cep", column = @Column(name = "endereço_cep"))		
-		})
-	private Endereco endereco;
+	private String rua;
+	private String numerocasa;
+	private String bairro;
+	private String cidade;
+	private String cep;
+
+	public String getRua() {
+		return rua;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public String getNumerocasa() {
+		return numerocasa;
+	}
+
+	public void setNumerocasa(String numerocasa) {
+		this.numerocasa = numerocasa;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 
 	public long getId() {
 		return id;
@@ -71,16 +107,5 @@ public class Pessoa {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	
-	
-	
 
 }

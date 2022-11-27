@@ -8,12 +8,14 @@ import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import org.apache.jasper.runtime.ProtectedFunctionMapper;
+
 import UniSaudeWeb.util.JpaUtil;
 
 
 public class Dao<T, ID> {
 
-	private EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+	protected EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
 
 	public void save(T entity) {
 		executeInsideTransaction(em -> em.persist(entity));

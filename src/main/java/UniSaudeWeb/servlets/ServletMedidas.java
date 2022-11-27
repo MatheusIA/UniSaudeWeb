@@ -12,8 +12,6 @@ import UniSaudeWeb.dao.TreinoDao;
 import UniSaudeWeb.model.MedidasCorporais;
 import UniSaudeWeb.model.TipoTreino;
 import UniSaudeWeb.model.Treino;
-import br.computacao.escolaWeb.dao.CursoDao;
-import br.computacao.escolaWeb.model.Curso;
 
 /**
  * Servlet implementation class ServletMedidas
@@ -37,7 +35,7 @@ public class ServletMedidas extends HttpServlet {
 		
 		MedidasCorporaisDao dao = new MedidasCorporaisDao();
 		
-		long medidaid = Long.parseLong(request.getParameter("idMedida"));
+		long medidaid = Long.parseLong(request.getParameter("id"));
 		MedidasCorporais deletarMedidas = dao.findById(MedidasCorporais.class, medidaid).get();
 		
 		dao.delete(deletarMedidas);		

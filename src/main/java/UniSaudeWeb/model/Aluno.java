@@ -21,8 +21,8 @@ import javax.persistence.ManyToMany;
 @DiscriminatorValue("1")
 public class Aluno extends Pessoa{
 	
-	
-	private long idAluno;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idAluno;
 	@Column(length = 10)
 	private String matricula;
 	
@@ -37,11 +37,11 @@ public class Aluno extends Pessoa{
 			)
 	Set<Treino> treinoAluno;
 
-	public long getIdAluno() {
+	public int getIdAluno() {
 		return idAluno;
 	}
 
-	public void setIdAluno(long idAluno) {
+	public void setIdAluno(int idAluno) {
 		this.idAluno = idAluno;
 	}
 
@@ -68,9 +68,6 @@ public class Aluno extends Pessoa{
 	public void setTreinoAluno(Set<Treino> treinoAluno) {
 		this.treinoAluno = treinoAluno;
 	}
-	
-	
-	
 	
 	
 	}

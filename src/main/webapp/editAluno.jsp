@@ -39,6 +39,30 @@
 			<input type="text" name="nivelAluno" value="<%= aluno.getNivelaluno() %>"/>
 			<br/>
 			
+			<label>Idade</label>
+			<input type="text" name="idade" value="<%= aluno.getIdade() %>"/>
+			<br/>
+			
+			<label>Bairro</label>
+			<input type="text" name="bairro" value="<%= aluno.getBairro() %>"/>
+			<br/>
+			
+			<label>CEP</label>
+			<input type="text" name="cep" value="<%= aluno.getCep() %>"/>
+			<br/>
+			
+			<label>Cidade</label>
+			<input type="text" name="cidade" value="<%= aluno.getCidade() %>"/>
+			<br/>
+			
+			<label>N° Casa</label>
+			<input type="text" name="numeroCasa" value="<%= aluno.getNumerocasa() %>"/>
+			<br/>
+			
+			<label>Rua</label>
+			<input type="text" name="rua" value="<%= aluno.getRua() %>"/>
+			<br/>
+			
 			<input type="submit" value="Salvar"/>
 		
 		</form>

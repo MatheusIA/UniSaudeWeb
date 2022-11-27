@@ -15,8 +15,6 @@ import UniSaudeWeb.model.Aparelhos;
 import UniSaudeWeb.model.NivelAluno;
 import UniSaudeWeb.model.TipoTreino;
 import UniSaudeWeb.model.Treino;
-import br.computacao.escolaWeb.dao.CursoDao;
-import br.computacao.escolaWeb.model.Curso;
 
 /**
  * Servlet implementation class ServletTreino
@@ -40,7 +38,7 @@ public class ServletTreino extends HttpServlet {
 
 		TreinoDao dao = new TreinoDao();
 		
-		long treinoid = Long.parseLong(request.getParameter("idTreino"));
+		long treinoid = Long.parseLong(request.getParameter("id"));
 		Treino deletarTreino = dao.findById(Treino.class, treinoid).get();
 		
 		dao.delete(deletarTreino);		

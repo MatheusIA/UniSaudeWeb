@@ -32,7 +32,7 @@
 		
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>Matricula</th>
 				<th>Nome</th>
 				<th>Nivel Aluno</th>
 				<th></th>	

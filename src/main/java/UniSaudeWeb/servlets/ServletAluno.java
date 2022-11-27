@@ -1,17 +1,26 @@
 package UniSaudeWeb.servlets;
 
 import java.io.IOException;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.Embeddable;
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.taglibs.standard.tag.el.fmt.RequestEncodingTag;
+
 import UniSaudeWeb.dao.AlunoDao;
+import UniSaudeWeb.dao.PessoaDao;
 import UniSaudeWeb.model.Aluno;
+import UniSaudeWeb.model.Endereco;
+import UniSaudeWeb.model.MedidasCorporais;
 import UniSaudeWeb.model.NivelAluno;
-import br.computacao.escolaWeb.dao.CursoDao;
-import br.computacao.escolaWeb.model.Curso;
+import UniSaudeWeb.model.Pessoa;
+import UniSaudeWeb.model.Treino;
 import UniSaudeWeb.*;
 
 
@@ -52,22 +61,39 @@ public class ServletAluno extends HttpServlet {
 		
 		AlunoDao dao = new AlunoDao();
 		
+		
 		if (request.getParameter("alunoid") == null) {		
 			
 			Aluno novoAluno = new Aluno();
+			
 			novoAluno.setNome(request.getParameter("nome"));
 			novoAluno.setEmail(request.getParameter("email"));
 			novoAluno.setNivelaluno(NivelAluno.valueOf(request.getParameter("nivelAluno").toUpperCase()));
+			novoAluno.setIdade(Integer.valueOf(request.getParameter("idade")));
+			novoAluno.setBairro(request.getParameter("bairro"));
+			novoAluno.setCep(request.getParameter("cep"));
+			novoAluno.setCidade(request.getParameter("cidade"));
+			novoAluno.setNumerocasa(request.getParameter("numeroCasa"));
+			novoAluno.setRua(request.getParameter("rua"));			
 			
 			dao.save(novoAluno);
 		}
 		else {
 			long alunoid = Long.parseLong(request.getParameter("alunoid"));
 			Aluno aluno = dao.findById(Aluno.class, alunoid).get();
+					
 			
 			aluno.setNome(request.getParameter("nome"));
 			aluno.setEmail(request.getParameter("email"));
 			aluno.setNivelaluno(NivelAluno.valueOf(request.getParameter("nivelAluno").toUpperCase()));
+			aluno.setIdade(Integer.valueOf(request.getParameter("idade")));
+			aluno.setBairro(request.getParameter("bairro"));
+			aluno.setCep(request.getParameter("cep"));
+			aluno.setCidade(request.getParameter("cidade"));
+			aluno.setNumerocasa(request.getParameter("numeroCasa"));
+			aluno.setRua(request.getParameter("rua"));	
+			
+			
 			
 			dao.update(aluno);
 			}

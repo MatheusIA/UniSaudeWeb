@@ -34,8 +34,6 @@
 				<th>Abdomen</th>
 				<th>Altura</th>
 				<th>Braco</th>
-				<th>Data Avaliação</th>
-				<th>IMC</th>
 				<th>Perna</th>
 				<th>Peso</th>
 				<th></th>	
@@ -49,27 +47,25 @@
 		%> 
 		
 			<tr>
-				<td><%= medida.getIdMedida() %></td> 
+				<td><%= medida.getId() %></td> 
 				
 				<td><%= medida.getAbdomen()%></td>  
 				
 				<td><%= medida.getAltura()%></td>
 				<td><%= medida.getBraco()%></td>
-				<td><%= medida.getDataAvaliacao()%></td>
-				<td><%= medida.getIMC()%></td>
 				<td><%= medida.getPerna()%></td>
 				<td><%= medida.getPeso()%></td>
 				
 				<td>
 							
 					<a class="btn btn-secondary btn-sm" 
-						href="editMedidas.jsp?id=<%= medida.getIdMedida() %>">Editar</a>	
+						href="editMedidas.jsp?id=<%= medida.getId() %>">Editar</a>	
 					
 				</td>
 					
 				<td>
 					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerMedidas?id=<%= medida.getIdMedida() %>">Excluir</a>
+						href="${pageContext.request.contextPath}/controllerMedidas?id=<%= medida.getId() %>">Excluir</a>
 				</td>
 			</tr>
 			<%
@@ -77,5 +73,6 @@
 			%> 
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>

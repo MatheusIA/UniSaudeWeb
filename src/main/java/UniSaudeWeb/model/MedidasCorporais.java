@@ -11,9 +11,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MedidasCorporais{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private long idMedida;
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private long id;
 		
 		@ManyToOne(fetch = FetchType.LAZY)
 		private Aluno aluno;
@@ -25,13 +25,13 @@ public class MedidasCorporais{
 		private double IMC;
 		private double Altura;
 		private Date DataAvaliacao;
+	
 		
-		
-		public long getIdMedida() {
-			return idMedida;
+		public long getId() {
+			return id;
 		}
-		public void setIdMedida(long idMedida) {
-			this.idMedida = idMedida;
+		public void setId(long id) {
+			this.id = id;
 		}
 		public Aluno getAluno() {
 			return aluno;

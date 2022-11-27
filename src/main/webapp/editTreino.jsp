@@ -17,7 +17,7 @@
 <body>
 
 <%
-	long treinoid = Long.parseLong(request.getParameter("idTreino"));
+	long treinoid = Long.parseLong(request.getParameter("id"));
 	TreinoDao dao = new TreinoDao();
 	Treino treinos = dao.findById(Treino.class, treinoid).get();
 %>

@@ -30,6 +30,11 @@
 		<input type="text" name="nivelAluno"/>
 		<br/>
 		
+		<label>Idade</label>
+		<input type="text" name="idade"/>
+		<br/>
+		
+		
 		<input type="submit" value="Salvar"/>
 	
 	</form>

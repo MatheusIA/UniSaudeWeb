@@ -44,7 +44,7 @@
 		%> 
 		
 			<tr>
-				<td><%=treino.getIdTreino()%></td> 
+				<td><%=treino.getId() %></td> 
 				
 				<td><%=treino.getNomeExecicio()%></td>  
 				
@@ -53,13 +53,13 @@
 				<td>
 							
 					<a class="btn btn-secondary btn-sm" 
-						href="editTreino.jsp?id=<%=treino.getIdTreino()%>">Editar</a>	
+						href="editTreino.jsp?id=<%=treino.getId() %>">Editar</a>	
 					
 				</td>
 					
 				<td>
 					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerTreino?id=<%=treino.getIdTreino()%>">Excluir</a>
+						href="${pageContext.request.contextPath}/controllerTreino?id=<%=treino.getId()%>">Excluir</a>
 				</td>
 			</tr>
 			<%

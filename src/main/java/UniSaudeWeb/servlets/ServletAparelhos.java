@@ -12,8 +12,6 @@ import UniSaudeWeb.dao.AparelhosDao;
 import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Aparelhos;
 import UniSaudeWeb.model.NivelAluno;
-import br.computacao.escolaWeb.dao.CursoDao;
-import br.computacao.escolaWeb.model.Curso;
 
 /**
  * Servlet implementation class ServletAparelhos

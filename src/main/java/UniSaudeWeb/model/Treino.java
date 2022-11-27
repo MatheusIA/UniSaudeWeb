@@ -18,7 +18,7 @@ public class Treino {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idTreino;
+	private long id;
 	private String nomeExecicio;
 	
 	@Enumerated(EnumType.STRING)
@@ -35,12 +35,13 @@ public class Treino {
 			)
 	Set<Aparelhos> treinosAparelhos;
 
-	public long getIdTreino() {
-		return idTreino;
+
+	public long getId() {
+		return id;
 	}
 
-	public void setIdTreino(long idTreino) {
-		this.idTreino = idTreino;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNomeExecicio() {

@@ -31,9 +31,6 @@
 		<input type="text" name=""/>
 		<br/>
 		
-		<label>IMC</label>
-		<input type="text" name=""/>
-		<br/>
 		
 		<label>Perna</label>
 		<input type="text" name="perna"/>
