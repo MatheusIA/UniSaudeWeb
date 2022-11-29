@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Treino {
@@ -24,20 +26,31 @@ public class Treino {
 	@Enumerated(EnumType.STRING)
 	private TipoTreino tipoTreino;
 	
-	@ManyToMany(mappedBy = "treinoAluno")
-	Set<Aluno> alunosTreinos;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Aluno aluno;
 	
-	@ManyToMany
-	@JoinTable(
-			name = "Treino_Aparelho",
-			joinColumns = @JoinColumn(name = "idTreino"),
-			inverseJoinColumns = @JoinColumn(name = "idAparelho")			
-			)
-	Set<Aparelhos> treinosAparelhos;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Aparelhos aparelho;
+	
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
 
 
 	public long getId() {
 		return id;
+	}
+
+	public Aparelhos getAparelho() {
+		return aparelho;
+	}
+
+	public void setAparelho(Aparelhos aparelho) {
+		this.aparelho = aparelho;
 	}
 
 	public void setId(long id) {
@@ -58,22 +71,6 @@ public class Treino {
 
 	public void setTipoTreino(TipoTreino tipoTreino) {
 		this.tipoTreino = tipoTreino;
-	}
-
-	public Set<Aluno> getAlunosTreinos() {
-		return alunosTreinos;
-	}
-
-	public void setAlunosTreinos(Set<Aluno> alunosTreinos) {
-		this.alunosTreinos = alunosTreinos;
-	}
-
-	public Set<Aparelhos> getTreinosAparelhos() {
-		return treinosAparelhos;
-	}
-
-	public void setTreinosAparelhos(Set<Aparelhos> treinosAparelhos) {
-		this.treinosAparelhos = treinosAparelhos;
 	}
 		
 	

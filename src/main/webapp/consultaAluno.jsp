@@ -14,6 +14,7 @@
 	rel="stylesheet" 
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
 	crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./styles/main.css">
 	
 <title>Aluno</title>
 </head>
@@ -33,8 +34,8 @@
       </button>
       <ul id="menu" role="menu">
         <li><a href="consultaAluno.jsp">Aluno</a></li>
-        <li><a href="consultaTreino.jsp">Treino</a></li>
-        <li><a href="consultaMedidas.jsp">Medidas</a></li>
+        <li><a href="formTreino.jsp">Treino</a></li>
+        <li><a href="formMedidas.jsp">Medidas</a></li>
         <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
       </ul>
     </nav>
@@ -49,6 +50,7 @@
     <h1>Alunos</h1>
     <div class="alunoBtn">
       <button>Cadastrar Aluno</button>
+      <a class="btn btn-primary" href="formAluno.jsp">Novo Aluno</a>
     </div>
     <div class="dont">
       <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
@@ -76,11 +78,10 @@
           <td>
             <%=aluno.getNivelaluno() %>
           </td>
-          <td>Rua Terezinha Salles Santos, Vila Formosa, 47</td>
-          <td>37131-516</td>
           <td><a href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a> </td>
           <td><a href="formMedidas.jsp?id=<%=aluno.getId()%>">Medidas</a></td>
-          <td><a href="consultaTreino.jsp?id=<%=aluno.getId()%>">Treino</a>></td>
+          <td><a href="formTreino.jsp?id=<%=aluno.getId()%>">Treino</a></td>
+          <td><a href="consultaCompleta.jsp?id=<%=aluno.getId()%>">Consulta Completa</a></td>
           <td><a href="${pageContext.request.contextPath}/controllerAluno?id=<%=aluno.getId()%>">Excluir</a></td>
         </tr>
         <% } %>

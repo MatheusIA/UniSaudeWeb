@@ -58,7 +58,7 @@ public class ServletMedidas extends HttpServlet {
 		long alunos = Long.parseLong(request.getParameter("id"));
 		Aluno aluno = daoAluno.findById(Aluno.class, alunos).get();
 		
-		if ((request.getParameter("medidaid") == null) && (request.getParameter("idAluno") == null)) {		
+		if (request.getParameter("medidaid") == null) {		
 			
 			MedidasCorporais novaMedida = new MedidasCorporais();
 			

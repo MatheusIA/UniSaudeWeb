@@ -53,7 +53,9 @@
 				<td>
 							
 					<a class="btn btn-secondary btn-sm" 
-						href="editTreino.jsp?id=<%=treino.getId() %>">Editar</a>	
+						href="editTreino.jsp?id=<%=treino.getId() %>">Editar</a>
+						<a class="btn btn-secondary btn-sm" 
+						href="formAparelho.jsp?id=<%=treino.getId() %>">Aparelhos</a>		
 					
 				</td>
 					
