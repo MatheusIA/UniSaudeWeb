@@ -24,7 +24,71 @@
 	List<Aluno> alunos = dao.findAll(Aluno.class);	
 	%> 
 
-<div class="container">
+<div class="topnav">
+  <div>
+    <!-- <a href="/sobre">Sobre nós</a> -->
+    <nav id="nav">
+      <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+        <span id="hamburger"></span>
+      </button>
+      <ul id="menu" role="menu">
+        <li><a href="consultaAluno.jsp">Aluno</a></li>
+        <li><a href="consultaTreino.jsp">Treino</a></li>
+        <li><a href="consultaMedidas.jsp">Medidas</a></li>
+        <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="alingMenu">
+    <img class="home" src="./img/img.png" />
+    <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
+  </div>
+</div>
+<div class="bodyAluno">
+  <div class="align">
+    <h1>Alunos</h1>
+    <div class="alunoBtn">
+      <button>Cadastrar Aluno</button>
+    </div>
+    <div class="dont">
+      <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
+      <h2>Alunos cadastrados</h2>
+    </div>
+    <table id="customers">
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Nivel</th>
+        <th>Endereço</th>
+        <th>Cep</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for(Aluno aluno: alunos) { %>
+        <tr>
+          <td>
+            <%=aluno.getNome()%>
+          </td>
+          <td>18</td>
+          <td>
+            <%= aluno.getEmail()%>
+          <td>
+            <%=aluno.getNivelaluno() %>
+          </td>
+          <td>Rua Terezinha Salles Santos, Vila Formosa, 47</td>
+          <td>37131-516</td>
+          <td><a href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a> </td>
+          <td><a href="formMedidas.jsp?id=<%=aluno.getId()%>">Medidas</a></td>
+          <td><a href="consultaTreino.jsp?id=<%=aluno.getId()%>">Treino</a>></td>
+          <td><a href="${pageContext.request.contextPath}/controllerAluno?id=<%=aluno.getId()%>">Excluir</a></td>
+        </tr>
+        <% } %>
+    </table>
+  </div>
+</div>
+
+<%-- <div class="container">
 	<a class="btn btn-primary" href="formAluno.jsp">Novo Aluno</a>
 	
 	
@@ -76,6 +140,25 @@
 				} 
 			%> 
 		</tbody>
-	</table>
+	</table> --%>
 </body>
 </html>
+        <script>
+            const btnMobile = document.getElementById('btn-mobile');
+
+            function toggleMenu(event) {
+              if (event.type === 'touchstart') event.preventDefault();
+              const nav = document.getElementById('nav');
+              nav.classList.toggle('active');
+              const active = nav.classList.contains('active');
+              event.currentTarget.setAttribute('aria-expanded', active);
+              if (active) {
+                event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+              } else {
+                event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+              }
+            }
+
+            btnMobile.addEventListener('click', toggleMenu);
+            btnMobile.addEventListener('touchstart', toggleMenu);
+          </script>
