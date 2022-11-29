@@ -22,7 +22,7 @@ import javax.persistence.ManyToMany;
 public class Aluno extends Pessoa{
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAluno;
+	private long idAluno;
 	@Column(length = 10)
 	private String matricula;
 	
@@ -35,13 +35,13 @@ public class Aluno extends Pessoa{
 			joinColumns = @JoinColumn(name = "idAluno"),
 			inverseJoinColumns = @JoinColumn(name = "idTreino")
 			)
-	Set<Treino> treinoAluno;
+	Set<Treino> treinoAluno;	
 
-	public int getIdAluno() {
+	public long getIdAluno() {
 		return idAluno;
 	}
 
-	public void setIdAluno(int idAluno) {
+	public void setIdAluno(long idAluno) {
 		this.idAluno = idAluno;
 	}
 

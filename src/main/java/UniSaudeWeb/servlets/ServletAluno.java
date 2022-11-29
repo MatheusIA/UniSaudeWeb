@@ -1,6 +1,7 @@
 package UniSaudeWeb.servlets;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Embeddable;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.taglibs.standard.tag.el.fmt.RequestEncodingTag;
 
 import UniSaudeWeb.dao.AlunoDao;
+import UniSaudeWeb.dao.Dao;
 import UniSaudeWeb.dao.PessoaDao;
 import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Endereco;
@@ -47,6 +49,7 @@ public class ServletAluno extends HttpServlet {
 		AlunoDao dao = new AlunoDao();
 		
 		long alunoid = Long.parseLong(request.getParameter("id"));
+		long idAluno = Long.parseLong(request.getParameter("idAluno"));
 		Aluno deletarAluno = dao.findById(Aluno.class, alunoid).get();
 		
 		dao.delete(deletarAluno);		
@@ -64,7 +67,7 @@ public class ServletAluno extends HttpServlet {
 		
 		if (request.getParameter("alunoid") == null) {		
 			
-			Aluno novoAluno = new Aluno();
+			Aluno novoAluno = new Aluno();			
 			
 			novoAluno.setNome(request.getParameter("nome"));
 			novoAluno.setEmail(request.getParameter("email"));
@@ -74,15 +77,16 @@ public class ServletAluno extends HttpServlet {
 			novoAluno.setCep(request.getParameter("cep"));
 			novoAluno.setCidade(request.getParameter("cidade"));
 			novoAluno.setNumerocasa(request.getParameter("numeroCasa"));
-			novoAluno.setRua(request.getParameter("rua"));			
-			
+			novoAluno.setRua(request.getParameter("rua"));
+			novoAluno.setIdAluno(1);
+								
 			dao.save(novoAluno);
+
 		}
 		else {
 			long alunoid = Long.parseLong(request.getParameter("alunoid"));
 			Aluno aluno = dao.findById(Aluno.class, alunoid).get();
-					
-			
+
 			aluno.setNome(request.getParameter("nome"));
 			aluno.setEmail(request.getParameter("email"));
 			aluno.setNivelaluno(NivelAluno.valueOf(request.getParameter("nivelAluno").toUpperCase()));
@@ -91,12 +95,12 @@ public class ServletAluno extends HttpServlet {
 			aluno.setCep(request.getParameter("cep"));
 			aluno.setCidade(request.getParameter("cidade"));
 			aluno.setNumerocasa(request.getParameter("numeroCasa"));
-			aluno.setRua(request.getParameter("rua"));	
-			
-			
+			aluno.setRua(request.getParameter("rua"));
+			aluno.setIdAluno(Long.parseLong(request.getParameter("alunoid")));
 			
 			dao.update(aluno);
 			}
+			
 		
 		response.sendRedirect("consultaAluno.jsp");
 		

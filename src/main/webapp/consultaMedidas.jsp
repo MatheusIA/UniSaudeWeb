@@ -1,3 +1,6 @@
+<%@page import="UniSaudeWeb.dao.AlunoDao"%>
+<%@page import="UniSaudeWeb.model.Aluno"%>
+<%@page import="UniSaudeWeb.model.Pessoa"%>
 <%@page import="java.util.List"%>
 <%@page import="UniSaudeWeb.model.MedidasCorporais"%>
 <%@page import="UniSaudeWeb.dao.MedidasCorporaisDao"%>
@@ -20,6 +23,11 @@
 <%
 	MedidasCorporaisDao dao = new MedidasCorporaisDao();
 	List<MedidasCorporais> medidas = dao.findAll(MedidasCorporais.class);
+	//MedidasCorporais medida = new MedidasCorporais();
+	
+	AlunoDao daoAluno = new AlunoDao();
+	List<Aluno> alunos = daoAluno.findAll(Aluno.class);
+	//Aluno aluno = new Aluno();
 %>
 
 <div class="container">
@@ -43,7 +51,10 @@
 		<tbody>
 		
 		<%
+		
+		
 		for(MedidasCorporais medida: medidas){ 
+			
 		%> 
 		
 			<tr>
@@ -55,14 +66,15 @@
 				<td><%= medida.getBraco()%></td>
 				<td><%= medida.getPerna()%></td>
 				<td><%= medida.getPeso()%></td>
-				
+								
 				<td>
-							
-					<a class="btn btn-secondary btn-sm" 
+	
+					<a 
+						class="btn btn-secondary btn-sm" 
 						href="editMedidas.jsp?id=<%= medida.getId() %>">Editar</a>	
 					
 				</td>
-					
+
 				<td>
 					<a class="btn btn-secondary btn-sm"
 						href="${pageContext.request.contextPath}/controllerMedidas?id=<%= medida.getId() %>">Excluir</a>
@@ -70,6 +82,7 @@
 			</tr>
 			<%
 				} 
+		
 			%> 
 		</tbody>
 	</table>
