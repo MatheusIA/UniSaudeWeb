@@ -29,4 +29,6 @@ public class TreinoDao extends Dao<Treino, Long> {
 		
 		return treinos;
 	}
+	
+	
 }

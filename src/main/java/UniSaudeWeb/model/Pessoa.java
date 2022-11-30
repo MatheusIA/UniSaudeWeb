@@ -2,6 +2,7 @@ package UniSaudeWeb.model;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -13,6 +14,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import net.bytebuddy.dynamic.loading.ClassReloadingStrategy.Strategy;
 
@@ -23,6 +30,7 @@ public class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private long id;
 	private String nome;
 	

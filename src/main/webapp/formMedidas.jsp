@@ -38,9 +38,8 @@
 		<br/>
 		
 		<label>Data Avaliação</label>
-		<input type="text" name=""/>
-		<br/>
-		
+		<input type="text" name="dataAvaliacao"/>
+		<br/>		
 		
 		<label>Perna</label>
 		<input type="text" name="perna"/>
@@ -49,9 +48,6 @@
 		<label>Peso</label>
 		<input type="text" name="peso"/>
 		<br/>		
-		
-		
-
 		
 		<input type="submit" value="Salvar"/>
 	

@@ -39,13 +39,13 @@ public class ServletMedidas extends HttpServlet {
 		
 		MedidasCorporaisDao dao = new MedidasCorporaisDao();
 				
-		long medidaid = Long.parseLong(request.getParameter("id"));
+		long medidaid = Long.parseLong(request.getParameter("id"));		
 		MedidasCorporais deletarMedidas = dao.findById(MedidasCorporais.class, medidaid).get();
-		
+
 		dao.delete(deletarMedidas);		
 
 	
-	response.sendRedirect("consultaMedidas.jsp");
+	response.sendRedirect("consultaAluno.jsp");
 	}
 
 	/**
@@ -67,6 +67,7 @@ public class ServletMedidas extends HttpServlet {
 			novaMedida.setBraco(Double.parseDouble(request.getParameter("braco")));
 			novaMedida.setPerna(Double.parseDouble(request.getParameter("perna")));
 			novaMedida.setPeso(Double.parseDouble(request.getParameter("peso")));
+			novaMedida.setDataAvaliacao(request.getParameter("dataAvaliacao"));
 			
 			novaMedida.setAluno(aluno);
 												
@@ -86,12 +87,7 @@ public class ServletMedidas extends HttpServlet {
 			dao.update(medidas);
 			}
 		
-		/*if((request.getParameter("medidaid") == null) && (request.getParameter("idAluno") == null))
-		{
-			
-		}*/
-		
-			response.sendRedirect("consultaMedidas.jsp");
+			response.sendRedirect("consultaAluno.jsp");
 	}
 
 }

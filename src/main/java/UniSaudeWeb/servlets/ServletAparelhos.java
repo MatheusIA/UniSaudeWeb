@@ -61,7 +61,6 @@ public class ServletAparelhos extends HttpServlet {
 			Aparelhos novoAparelho = new Aparelhos();
 			novoAparelho.setNomeAparelho(request.getParameter("nomeAparelho"));
 			novoAparelho.setFuncaoAparelho(request.getParameter("funcaoAparelho"));
-			novoAparelho.setTreino(treino);
 						
 			dao.save(novoAparelho);
 		}

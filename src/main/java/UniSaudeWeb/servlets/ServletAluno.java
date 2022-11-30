@@ -16,6 +16,7 @@ import org.apache.taglibs.standard.tag.el.fmt.RequestEncodingTag;
 
 import UniSaudeWeb.dao.AlunoDao;
 import UniSaudeWeb.dao.Dao;
+import UniSaudeWeb.dao.MedidasCorporaisDao;
 import UniSaudeWeb.dao.PessoaDao;
 import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Endereco;
@@ -49,9 +50,9 @@ public class ServletAluno extends HttpServlet {
 		AlunoDao dao = new AlunoDao();
 		
 		long alunoid = Long.parseLong(request.getParameter("id"));
-		long idAluno = Long.parseLong(request.getParameter("idAluno"));
+
 		Aluno deletarAluno = dao.findById(Aluno.class, alunoid).get();
-		
+
 		dao.delete(deletarAluno);		
 	
 	response.sendRedirect("consultaAluno.jsp");

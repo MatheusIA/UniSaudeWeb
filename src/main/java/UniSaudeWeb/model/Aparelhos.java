@@ -19,8 +19,7 @@ public class Aparelhos {
 	private String nomeAparelho;
 	private String funcaoAparelho;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Treino treino;
+	
 
 	public long getId() {
 		return id;
@@ -46,13 +45,6 @@ public class Aparelhos {
 		this.funcaoAparelho = funcaoAparelho;
 	}
 
-	public Treino getTreino() {
-		return treino;
-	}
-
-	public void setTreino(Treino treino) {
-		this.treino = treino;
-	}
 
 		
 }

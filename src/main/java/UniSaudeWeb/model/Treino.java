@@ -22,15 +22,41 @@ public class Treino {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nomeExecicio;
+	private String repeticao;
+	private String serie;
+	private String ficha;
 	
+	public String getFicha() {
+		return ficha;
+	}
+
+	public void setFicha(String ficha) {
+		this.ficha = ficha;
+	}
+
+	public String getRepeticao() {
+		return repeticao;
+	}
+
+	public void setRepeticao(String repeticao) {
+		this.repeticao = repeticao;
+	}
+
+	public String getSerie() {
+		return serie;
+	}
+
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+
 	@Enumerated(EnumType.STRING)
 	private TipoTreino tipoTreino;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Aluno aluno;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Aparelhos aparelho;
+	
 	
 	public Aluno getAluno() {
 		return aluno;
@@ -45,14 +71,7 @@ public class Treino {
 		return id;
 	}
 
-	public Aparelhos getAparelho() {
-		return aparelho;
-	}
-
-	public void setAparelho(Aparelhos aparelho) {
-		this.aparelho = aparelho;
-	}
-
+	
 	public void setId(long id) {
 		this.id = id;
 	}

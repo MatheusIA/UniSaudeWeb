@@ -34,6 +34,18 @@
 		<input type="text" name="tipoTreino"/>
 		<br/>
 		
+		<label>Ficha</label>
+		<input type="text" name="ficha"/>
+		<br/>
+		
+		<label>Repetição</label>
+		<input type="text" name="repeticao"/>
+		<br/>
+		
+		<label>Serie</label>
+		<input type="text" name="serie"/>
+		<br/>
+		
 		<input type="submit" value="Salvar"/>
 	
 	</form>

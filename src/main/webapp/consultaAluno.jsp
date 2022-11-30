@@ -1,3 +1,5 @@
+<%@page import="UniSaudeWeb.model.MedidasCorporais"%>
+<%@page import="UniSaudeWeb.dao.MedidasCorporaisDao"%>
 <%@page import="java.util.List"%>
 <%@page import="UniSaudeWeb.model.Aluno"%>
 <%@page import="UniSaudeWeb.dao.Dao"%>
@@ -22,7 +24,12 @@
 
 	<%
 	AlunoDao dao = new AlunoDao();
-	List<Aluno> alunos = dao.findAll(Aluno.class);	
+	List<Aluno> alunos = dao.findAll(Aluno.class);
+	
+	MedidasCorporaisDao daoMedida = new MedidasCorporaisDao();
+	List<MedidasCorporais> medidas = daoMedida.findAll(MedidasCorporais.class);
+	
+	
 	%> 
 
 <div class="topnav">
@@ -34,8 +41,8 @@
       </button>
       <ul id="menu" role="menu">
         <li><a href="consultaAluno.jsp">Aluno</a></li>
-        <li><a href="formTreino.jsp">Treino</a></li>
-        <li><a href="formMedidas.jsp">Medidas</a></li>
+        <li><a href="consultaTreino.jsp">Treino</a></li>
+        <li><a href="consultaMedidas.jsp">Medidas</a></li>
         <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
       </ul>
     </nav>
@@ -60,31 +67,38 @@
       <tr>
         <th>Nome</th>
         <th>Idade</th>
-        <th>Email</th>
         <th>Nivel</th>
-        <th>Endereço</th>
-        <th>Cep</th>
         <th></th>
         <th></th>
       </tr>
-      <% for(Aluno aluno: alunos) { %>
+      <% for(Aluno aluno: alunos) {
+    	  
+    	  %>
         <tr>
           <td>
             <%=aluno.getNome()%>
           </td>
-          <td>18</td>
           <td>
-            <%= aluno.getEmail()%>
+          	<%= aluno.getIdade() %>
           <td>
             <%=aluno.getNivelaluno() %>
           </td>
-          <td><a href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a> </td>
-          <td><a href="formMedidas.jsp?id=<%=aluno.getId()%>">Medidas</a></td>
-          <td><a href="formTreino.jsp?id=<%=aluno.getId()%>">Treino</a></td>
-          <td><a href="consultaCompleta.jsp?id=<%=aluno.getId()%>">Consulta Completa</a></td>
-          <td><a href="${pageContext.request.contextPath}/controllerAluno?id=<%=aluno.getId()%>">Excluir</a></td>
+          <td>
+	          <a class="btn btn-secondary btn-sm" 
+	          	href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a>
+	          	
+	          <a class="btn btn-secondary btn-sm" 
+	          	href="formMedidas.jsp?id=<%=aluno.getId()%>"> Criar Medidas</a>
+	          	
+	          <a class="btn btn-secondary btn-sm" 
+	          	href="formTreino.jsp?id=<%=aluno.getId()%>">Criar Treino</a>
+	          	
+	          <a class="btn btn-secondary btn-sm" 
+	           	href="consultaCompleta.jsp?id=<%=aluno.getId()%>">Consulta Completa</a>
+
+	         </td>
         </tr>
-        <% } %>
+        <% }  %>
     </table>
   </div>
 </div>

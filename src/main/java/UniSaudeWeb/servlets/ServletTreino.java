@@ -47,7 +47,7 @@ public class ServletTreino extends HttpServlet {
 		
 		dao.delete(deletarTreino);		
 	
-	response.sendRedirect("consultaTreino.jsp");
+	response.sendRedirect("consultaAluno.jsp");
 	}
 
 	/**
@@ -57,22 +57,22 @@ public class ServletTreino extends HttpServlet {
 
 		TreinoDao dao = new TreinoDao();
 		AlunoDao daoAluno = new AlunoDao();
-		AparelhosDao daoAparelhos = new AparelhosDao();
 		
 		long alunos = Long.parseLong(request.getParameter("id"));
 		Aluno aluno = daoAluno.findById(Aluno.class, alunos).get();
-		
-		long aparelhos = Long.parseLong(request.getParameter("id"));
-		Aparelhos aparelho = daoAparelhos.findById(Aparelhos.class, aparelhos).get();
+
 				
 		if (request.getParameter("treinoid") == null) {		
 			
 			Treino novoTreino = new Treino();
 			novoTreino.setNomeExecicio(request.getParameter("nomeExercicio"));
 			novoTreino.setTipoTreino(TipoTreino.valueOf(request.getParameter("tipoTreino").toUpperCase()));
+			novoTreino.setRepeticao(request.getParameter("repeticao"));
+			novoTreino.setSerie(request.getParameter("serie"));
+			novoTreino.setFicha(request.getParameter("ficha"));
+			
 			novoTreino.setAluno(aluno);
-			novoTreino.setAparelho(aparelho);
-									
+												
 			dao.save(novoTreino);
 		}
 		else {
@@ -81,11 +81,14 @@ public class ServletTreino extends HttpServlet {
 			
 			treinos.setNomeExecicio(request.getParameter("nomeExercicio"));
 			treinos.setTipoTreino(TipoTreino.valueOf(request.getParameter("tipoTreino").toUpperCase()));
+			treinos.setRepeticao(request.getParameter("repeticao"));
+			treinos.setSerie(request.getParameter("serie"));
+			treinos.setFicha(request.getParameter("ficha"));
 			
 			dao.update(treinos);
 			}
 		
-		response.sendRedirect("consultaTreino.jsp");
+		response.sendRedirect("consultaAluno.jsp");
 	}
 
 }

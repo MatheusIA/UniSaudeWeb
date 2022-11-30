@@ -1,6 +1,7 @@
 package UniSaudeWeb.model;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class MedidasCorporais{
 		private double Abdomen;
 		private double IMC;
 		private double Altura;
-		private Date DataAvaliacao;
+		private String DataAvaliacao;
 	
 		
 		public long getId() {
@@ -75,12 +76,13 @@ public class MedidasCorporais{
 		public void setAltura(double altura) {
 			Altura = altura;
 		}
-		public Date getDataAvaliacao() {
+		public String getDataAvaliacao() {
 			return DataAvaliacao;
 		}
-		public void setDataAvaliacao(Date dataAvaliacao) {
+		public void setDataAvaliacao(String dataAvaliacao) {
 			DataAvaliacao = dataAvaliacao;
 		}
+		
 		
 		
 }

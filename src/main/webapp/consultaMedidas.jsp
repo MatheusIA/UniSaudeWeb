@@ -76,8 +76,9 @@
 				</td>
 
 				<td>
-					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerMedidas?id=<%= medida.getId() %>">Excluir</a>
+				<a class="btn btn-secondary btn-sm"
+					
+					href="${pageContext.request.contextPath}/controllerMedidas?id=<%= medida.getId() %>">Excluir</a>
 				</td>
 			</tr>
 			<%

@@ -30,4 +30,5 @@ public class MedidasCorporaisDao extends Dao<MedidasCorporais, Long> {
 		
 		return medidas;
 	}
+	
 }

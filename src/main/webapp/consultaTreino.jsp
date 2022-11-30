@@ -1,3 +1,6 @@
+<%@page import="UniSaudeWeb.dao.PessoaDao"%>
+<%@page import="UniSaudeWeb.model.Pessoa"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="UniSaudeWeb.model.Treino"%>
 <%@page import="UniSaudeWeb.dao.TreinoDao"%>
@@ -19,7 +22,11 @@
 
 <%
 	TreinoDao dao = new TreinoDao();
+	PessoaDao daoPessoa = new PessoaDao();
+
 	List<Treino> treinos = dao.findAll(Treino.class);	
+
+
 %> 
 
 <div class="container">
@@ -41,22 +48,20 @@
 		
 		<%
 		for(Treino treino: treinos){ 
+			
 		%> 
 		
 			<tr>
-				<td><%=treino.getId() %></td> 
 				
 				<td><%=treino.getNomeExecicio()%></td>  
 				
 				<td><%=treino.getTipoTreino()%></td>
-				
+
 				<td>
-							
 					<a class="btn btn-secondary btn-sm" 
 						href="editTreino.jsp?id=<%=treino.getId() %>">Editar</a>
 						<a class="btn btn-secondary btn-sm" 
-						href="formAparelho.jsp?id=<%=treino.getId() %>">Aparelhos</a>		
-					
+						href="formAparelho.jsp?id=<%=treino.getId() %>">Aparelhos</a>					
 				</td>
 					
 				<td>
@@ -65,7 +70,8 @@
 				</td>
 			</tr>
 			<%
-				} 
+				}
+
 			%> 
 		</tbody>
 	</table>
