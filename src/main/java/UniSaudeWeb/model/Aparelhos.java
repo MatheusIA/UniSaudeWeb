@@ -3,10 +3,12 @@ package UniSaudeWeb.model;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Aparelhos {
@@ -17,8 +19,8 @@ public class Aparelhos {
 	private String nomeAparelho;
 	private String funcaoAparelho;
 	
-	@ManyToMany(mappedBy = "treinosAparelhos")
-	Set<Treino> treinoAparelho;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Treino treino;
 
 	public long getId() {
 		return id;
@@ -44,14 +46,13 @@ public class Aparelhos {
 		this.funcaoAparelho = funcaoAparelho;
 	}
 
-	public Set<Treino> getTreinoAparelho() {
-		return treinoAparelho;
+	public Treino getTreino() {
+		return treino;
 	}
 
-	public void setTreinoAparelho(Set<Treino> treinoAparelho) {
-		this.treinoAparelho = treinoAparelho;
+	public void setTreino(Treino treino) {
+		this.treino = treino;
 	}
-	
-	
-	
+
+		
 }

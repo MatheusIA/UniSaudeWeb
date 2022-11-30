@@ -1,3 +1,6 @@
+<%@page import="UniSaudeWeb.model.Treino"%>
+<%@page import="java.util.List"%>
+<%@page import="UniSaudeWeb.dao.TreinoDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -15,7 +18,15 @@
 </head>
 <body>
 
+<%
+	TreinoDao dao = new TreinoDao();
+	List<Treino> treinos = dao.findAll(Treino.class);
+	Treino treino = new Treino();
+	
+%>
+
 	<form action="controllerAparelhos" method="post">
+	<input type="hidden" name="id" value="<%= request.getParameter("id") %>">
 		<label>Função do Aparelho</label>
 		<input type="text" name="funcaoAparelho"/>
 		<br/>

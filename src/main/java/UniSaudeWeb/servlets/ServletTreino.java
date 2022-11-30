@@ -9,12 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import UniSaudeWeb.dao.AlunoDao;
 import UniSaudeWeb.dao.AparelhosDao;
+import UniSaudeWeb.dao.TreinoAparelhoDao;
 import UniSaudeWeb.dao.TreinoDao;
+import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Aparelhos;
 import UniSaudeWeb.model.NivelAluno;
 import UniSaudeWeb.model.TipoTreino;
 import UniSaudeWeb.model.Treino;
+import UniSaudeWeb.model.TreinoAparelho;
 
 /**
  * Servlet implementation class ServletTreino
@@ -52,13 +56,23 @@ public class ServletTreino extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		TreinoDao dao = new TreinoDao();
+		AlunoDao daoAluno = new AlunoDao();
+		AparelhosDao daoAparelhos = new AparelhosDao();
 		
+		long alunos = Long.parseLong(request.getParameter("id"));
+		Aluno aluno = daoAluno.findById(Aluno.class, alunos).get();
+		
+		long aparelhos = Long.parseLong(request.getParameter("id"));
+		Aparelhos aparelho = daoAparelhos.findById(Aparelhos.class, aparelhos).get();
+				
 		if (request.getParameter("treinoid") == null) {		
 			
 			Treino novoTreino = new Treino();
 			novoTreino.setNomeExecicio(request.getParameter("nomeExercicio"));
 			novoTreino.setTipoTreino(TipoTreino.valueOf(request.getParameter("tipoTreino").toUpperCase()));
-						
+			novoTreino.setAluno(aluno);
+			novoTreino.setAparelho(aparelho);
+									
 			dao.save(novoTreino);
 		}
 		else {

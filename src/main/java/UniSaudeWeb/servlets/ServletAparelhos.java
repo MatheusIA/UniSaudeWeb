@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import UniSaudeWeb.dao.AlunoDao;
 import UniSaudeWeb.dao.AparelhosDao;
+import UniSaudeWeb.dao.TreinoDao;
 import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Aparelhos;
 import UniSaudeWeb.model.NivelAluno;
+import UniSaudeWeb.model.Treino;
 
 /**
  * Servlet implementation class ServletAparelhos
@@ -49,12 +51,17 @@ public class ServletAparelhos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		AparelhosDao dao = new AparelhosDao();
+		TreinoDao daoTreino = new TreinoDao();
+		
+		long treinos = Long.parseLong(request.getParameter("id"));
+		Treino treino = daoTreino.findById(Treino.class, treinos).get();
 		
 		if (request.getParameter("aparelhoid") == null) {		
 			
 			Aparelhos novoAparelho = new Aparelhos();
 			novoAparelho.setNomeAparelho(request.getParameter("nomeAparelho"));
 			novoAparelho.setFuncaoAparelho(request.getParameter("funcaoAparelho"));
+			novoAparelho.setTreino(treino);
 						
 			dao.save(novoAparelho);
 		}

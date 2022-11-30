@@ -1,3 +1,9 @@
+<%@page import="UniSaudeWeb.model.Treino"%>
+<%@page import="UniSaudeWeb.dao.TreinoDao"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="UniSaudeWeb.model.MedidasCorporais"%>
+<%@page import="UniSaudeWeb.dao.MedidasCorporaisDao"%>
 <%@page import="com.mysql.cj.Query"%>
 <%@page import="UniSaudeWeb.model.Aluno"%>
 <%@page import="java.util.List"%>
@@ -20,9 +26,117 @@
 <body>
 
 	<%
-		Query query = session.getAttribute("jpql");
+		MedidasCorporaisDao dao = new MedidasCorporaisDao();
+		TreinoDao daoTreino = new TreinoDao();
+	
+		Long id = Long.parseLong(request.getParameter("id"));
+		
+		List<Long> medidasid = dao.getMedidasCorporais(id);
+		List<Long> treinoid = daoTreino.getTreinos(id);
+		
+		List<MedidasCorporais> medidas = new ArrayList<MedidasCorporais>();	
+		List<Treino> treinos = new ArrayList<Treino>();
+		
+		for(Long medidaid : medidasid)
+		{
+			MedidasCorporais medidafind = dao.findById(MedidasCorporais.class, medidaid).get();
+			medidas.add(medidafind);
+		}
+		
+		for(Long treinosid : treinoid)
+		{
+			Treino treinofind = daoTreino.findById(Treino.class, treinosid).get();
+			treinos.add(treinofind);
+		}
+		
+		
+		
 	
 	%>
+<div class="container">
+	
+	<table class="table table-bordered">
+		
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Abdomen</th>
+				<th>Altura</th>
+				<th>Braco</th>
+				<th>Perna</th>
+				<th>Peso</th>
+		
+			</tr>
+		</thead>
+		<tbody>
+		
+		<%
+		
+		
+		for(MedidasCorporais medida: medidas){ 
+			
+		%> 
+		
+			<tr>
+				<td><%= medida.getId() %></td> 
+				
+				<td><%= medida.getAbdomen()%></td>  
+				
+				<td><%= medida.getAltura()%></td>
+				<td><%= medida.getBraco()%></td>
+				<td><%= medida.getPerna()%></td>
+				<td><%= medida.getPeso()%></td>
+								
 
+				
+			</tr>
+			<%
+				} 
+		
+			%> 
+			
+			
+		</tbody>
+	</table>
+	</div>
+	
+	<div class="container">
+	<table class="table table-bordered">
+		
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Exercicio</th>
+				<th>Tipo</th>
+					
+			</tr>
+		</thead>
+		<tbody>
+		
+		<%
+				
+			for(Treino treino: treinos){ 
+			
+		%> 
+		
+			<tr>
+				<td><%= treino.getId() %></td> 
+				
+				<td><%= treino.getNomeExecicio() %></td>  
+				
+				<td><%= treino.getTipoTreino() %></td>
+
+			</tr>
+			<%
+				} 
+		
+			%> 
+
+			
+			
+		</tbody>
+	</table>
+	</div>
+	
 </body>
 </html>
