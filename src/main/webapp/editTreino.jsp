@@ -11,7 +11,7 @@
 	rel="stylesheet" 
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
 	crossorigin="anonymous">
-	
+			<link rel="stylesheet" href="../css/styles.css">
 <title>Editar Treino</title>
 </head>
 <body>
@@ -21,23 +21,78 @@
 	TreinoDao dao = new TreinoDao();
 	Treino treinos = dao.findById(Treino.class, treinoid).get();
 %>
+<div class="topnav">
+            <div>
+              <!-- <a href="/sobre">Sobre nós</a> -->
+              <nav id="nav">
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                  <span id="hamburger"></span>
+                </button>
+                <ul id="menu" role="menu">
+                  <li><a href="consultaAluno.jsp">Aluno</a></li>
+                  <li><a href="consultaTreino.jsp">Treino</a></li>
+                  <li><a href="consultaMedidas.jsp">Medidas</a></li>
+                  <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+                </ul>
+              </nav>
+            </div>
+            <div class="alingMenu">
+              <a src="./Home.html"><img class="home" src="./img/img.png" /></a>
+              <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
+            </div>
+          </div>
 
-<h1>Editar Treino</h1>
-	
-	<form action="controllerTreino" method="post">
-		<input type="hidden" name="treinoid" value="<%= treinoid %>"/>
-			
-			<label>Nome Exercicio</label>
-			<input type="text" name="nomeExercicio" value="<%= treinos.getNomeExecicio() %>"/>
-			<br/>
-			
-			<label>Tipo de Treino</label>
-			<input type="text" name="tipoTreino" value="<%= treinos.getTipoTreino() %>"/>
-			<br/>
-			
-			<input type="submit" value="Salvar"/>
-		
-		</form>
+<div class="bodyAluno">
+            <div class="alignRegister">
+              <div>
+                <a href="consultaTreino.jsp" class="back">
+                  < Voltar</a>
+                    <h1>Editar Treino</h1>
 
+                    <form action="controllerTreino" method="post">
+                      <input type="hidden" name="treinoid" value="<%= treinoid %>" />
+                      <div class="register">
+                        <div class="line">
+                          <div class="group">
+                            <p>Nome do Exercicio:</p>
+                            <input type="text" name="nomeExercicio" value="<%= treinos.getNomeExecicio() %>" />
+                          </div>
+                          <div class="group">
+                            <p>Tipo de Treino:</p>
+                            <input type="text" name="tipoTreino" value="<%= treinos.getTipoTreino() %>" />
+                          </div>
+                        </div>
+                        <div class="line">
+                          <div class="btnRegister">
+                            <p></p>
+                            <input type="submit" value="Salvar" />
+                          </div>
+                        </div>
+
+                      </div>
+                    </form>
+
+              </div>
+            </div>
+          </div>
 </body>
 </html>
+<script>
+    const btnMobile = document.getElementById('btn-mobile');
+
+    function toggleMenu(event) {
+      if (event.type === 'touchstart') event.preventDefault();
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('active');
+      const active = nav.classList.contains('active');
+      event.currentTarget.setAttribute('aria-expanded', active);
+      if (active) {
+        event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+      } else {
+        event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+      }
+    }
+
+    btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('touchstart', toggleMenu);
+</script>
