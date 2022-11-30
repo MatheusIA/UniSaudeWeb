@@ -64,6 +64,8 @@
         <th>Cep</th>
         <th></th>
         <th></th>
+        <th></th>
+        <th></th>
       </tr>
       <% for(Aluno aluno: alunos) { %>
         <tr>
@@ -88,59 +90,6 @@
   </div>
 </div>
 
-<%-- <div class="container">
-	<a class="btn btn-primary" href="formAluno.jsp">Novo Aluno</a>
-	
-	
-	<table class="table table-bordered">
-		
-		<thead>
-			<tr>
-				<th>Matricula</th>
-				<th>Nome</th>
-				<th>Nivel Aluno</th>
-				<th></th>	
-				<th></th>		
-			</tr>
-		</thead>
-		<tbody>
-		
-		<%
-		for(Aluno aluno: alunos){ 
-		%> 
-		
-			<tr>
-				<td><%=aluno.getId()%></td> 
-				
-				<td><%=aluno.getNome()%></td>  
-				
-				<td><%= aluno.getEmail()%>
-				
-				<td><%=aluno.getNivelaluno() %></td>
-				
-				<td>
-							
-					<a class="btn btn-secondary btn-sm" 
-						href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a>
-						
-						<a class="btn btn-secondary btn-sm" 
-						href="formMedidas.jsp?id=<%=aluno.getId()%>">Medidas</a>
-						
-						<a class="btn btn-secondary btn-sm" 
-						href="consultaTreino.jsp?id=<%=aluno.getId()%>">Treino</a>
-							
-				</td>
-					
-				<td>
-					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerAluno?id=<%=aluno.getId()%>">Excluir</a>
-				</td>
-			</tr>
-			<%
-				} 
-			%> 
-		</tbody>
-	</table> --%>
 </body>
 </html>
         <script>
@@ -161,4 +110,4 @@
 
             btnMobile.addEventListener('click', toggleMenu);
             btnMobile.addEventListener('touchstart', toggleMenu);
-          </script>
+        </script>
