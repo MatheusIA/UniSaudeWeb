@@ -53,7 +53,7 @@
         <div class="align">
           <h1>Medidas</h1>
           <div class="alunoBtn">
-            <button class="button"><a href="formMedidas.jsp">Novo Medida</a></button>
+            <button class="button"><a href="formMedidas.jsp">Nova Medida</a></button>
           </div>
           <div class="dont">
             <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->

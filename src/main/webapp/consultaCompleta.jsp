@@ -83,6 +83,7 @@
                  <th>Braco</th>
                  <th>Perna</th>
                  <th>Peso</th>
+                 
                </tr>
              </thead>
              <tbody>
@@ -108,6 +109,7 @@
                    <td>
                      <%= medida.getPeso()%>
                    </td>
+                   
                  </tr>
                  <% } %>
              </tbody>

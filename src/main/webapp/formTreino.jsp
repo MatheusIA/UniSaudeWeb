@@ -52,7 +52,7 @@
             < Voltar</a>
               <h1>Cadastrar Treino</h1>
               <form action="controllerTreino" method="post">
-                <input type="hidden" name="id" value="<%= request.getParameter(" id") %>">
+                <input type="hidden" name="id" value="<%= request.getParameter("id") %>">
                 <div class="register">
                   <div class="line">
                     <div class="group">

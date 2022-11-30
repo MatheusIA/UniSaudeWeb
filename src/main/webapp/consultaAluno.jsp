@@ -56,7 +56,9 @@
       <div class="align">
         <h1>Alunos</h1>
         <div class="alunoBtn">
-          <button class="button"><a href="formAluno.jsp">Novo Aluno</a></button>
+          <button class="button">
+          <a href="formAluno.jsp">Novo Aluno</a>
+          </button>
         </div>
         <div class="dont">
           <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
@@ -86,7 +88,7 @@
 	          	href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a>
 	          	
 	          <a class="btn btn-secondary btn-sm" 
-	          	href="formMedidasteste.jsp?id=<%=aluno.getId()%>"> Criar Medidas</a>
+	          	href="formMedidas.jsp?id=<%=aluno.getId()%>"> Criar Medidas</a>
 	          	
 	          <a class="btn btn-secondary btn-sm" 
 	          	href="formTreino.jsp?id=<%=aluno.getId()%>">Criar Treino</a>
