@@ -275,11 +275,82 @@ a:hover {
   width: 100%;
   height: 100%;
   background-color: #04AA6D ;
+  overflow-y: auto;
 }
 
 .bodyAluno .align {
   padding: 0 150px;
   color: #ffffff;
+}
+
+.bodyAluno .alignRegister {
+  padding: 0 150px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.bodyAluno .alignRegister .back {
+  color: #ffffff;
+}
+
+.bodyAluno .alignRegister .register {
+  background-color: #333;
+  width: 700px;
+  min-height: 370px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px 2px #00000052;
+  padding: 30px 100px 40px;
+}
+
+.bodyAluno .alignRegister .register p {
+ color: #ffffff;
+ font-size: 20px;
+}
+
+.bodyAluno .alignRegister .register .line .btnRegister {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 30px;
+ }
+
+ .bodyAluno .alignRegister .register .line .btnRegister input {
+  display: flex;
+  width: 160px;
+  justify-content: center;
+  margin-top: 30px;
+  height: 40px;
+  align-items: center;
+  font-size: 17px;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 11px;
+  color: #ffff;
+  font-weight: 500;
+  cursor: pointer;
+ }
+
+.bodyAluno .alignRegister .register input, select {
+  width: 280px;
+  height: 35px;
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 0 6px 1px #0009;
+  outline: 0;
+  padding-left: 10px;
+}
+
+.bodyAluno .alignRegister .register .line {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
 }
 
 .bodyAluno .align .alunoBtn .button {
