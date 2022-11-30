@@ -95,7 +95,8 @@
 
                 <td>
 
-                  <a class="btn btn-secondary btn-sm" href="editMedidas.jsp?id=<%= medida.getId() %>">Editar</a>
+                  <a class="btn btn-secondary btn-sm"
+                   href="editMedidas.jsp?id=<%= medida.getId() %>">Editar</a>
 
                 </td>
 
