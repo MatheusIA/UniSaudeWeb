@@ -52,26 +52,24 @@
     <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
   </div>
 </div>
-<div class="bodyAluno">
-  <div class="align">
-    <h1>Alunos</h1>
-    <div class="alunoBtn">
-      <button>Cadastrar Aluno</button>
-      <a class="btn btn-primary" href="formAluno.jsp">Novo Aluno</a>
-    </div>
-    <div class="dont">
-      <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
-      <h2>Alunos cadastrados</h2>
-    </div>
-    <table id="customers">
-      <tr>
-        <th>Nome</th>
-        <th>Idade</th>
-        <th>Nivel</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <% for(Aluno aluno: alunos) {
+    <div class="bodyAluno">
+      <div class="align">
+        <h1>Alunos</h1>
+        <div class="alunoBtn">
+          <button class="button"><a href="formAluno.jsp">Novo Aluno</a></button>
+        </div>
+        <div class="dont">
+          <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
+          <h2>Alunos cadastrados</h2>
+        </div>
+        <table id="customers">
+          <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Nivel</th>
+            <th></th>
+          </tr>
+          <% for(Aluno aluno: alunos) {
     	  
     	  %>
         <tr>
@@ -99,63 +97,12 @@
 	         </td>
         </tr>
         <% }  %>
-    </table>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
-<%-- <div class="container">
-	<a class="btn btn-primary" href="formAluno.jsp">Novo Aluno</a>
-	
-	
-	<table class="table table-bordered">
-		
-		<thead>
-			<tr>
-				<th>Matricula</th>
-				<th>Nome</th>
-				<th>Nivel Aluno</th>
-				<th></th>	
-				<th></th>		
-			</tr>
-		</thead>
-		<tbody>
-		
-		<%
-		for(Aluno aluno: alunos){ 
-		%> 
-		
-			<tr>
-				<td><%=aluno.getId()%></td> 
-				
-				<td><%=aluno.getNome()%></td>  
-				
-				<td><%= aluno.getEmail()%>
-				
-				<td><%=aluno.getNivelaluno() %></td>
-				
-				<td>
-							
-					<a class="btn btn-secondary btn-sm" 
-						href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a>
-						
-						<a class="btn btn-secondary btn-sm" 
-						href="formMedidas.jsp?id=<%=aluno.getId()%>">Medidas</a>
-						
-						<a class="btn btn-secondary btn-sm" 
-						href="consultaTreino.jsp?id=<%=aluno.getId()%>">Treino</a>
-							
-				</td>
-					
-				<td>
-					<a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerAluno?id=<%=aluno.getId()%>">Excluir</a>
-				</td>
-			</tr>
-			<%
-				} 
-			%> 
-		</tbody>
-	</table> --%>
 </body>
 </html>
         <script>
@@ -176,4 +123,4 @@
 
             btnMobile.addEventListener('click', toggleMenu);
             btnMobile.addEventListener('touchstart', toggleMenu);
-          </script>
+        </script>
