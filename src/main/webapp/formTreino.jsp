@@ -24,31 +24,73 @@
 	Aluno aluno = new Aluno();
 %>
 
-	<form action="controllerTreino" method="post">
-	<input type="hidden" name="id" value="<%= request.getParameter("id") %>">
-		<label>Nome do Exercicio</label>
-		<input type="text" name="nomeExercicio"/>
-		<br/>
-		
-		<label>Tipo de Treino</label>
-		<input type="text" name="tipoTreino"/>
-		<br/>
-		
-		<label>Ficha</label>
-		<input type="text" name="ficha"/>
-		<br/>
-		
-		<label>Repetição</label>
-		<input type="text" name="repeticao"/>
-		<br/>
-		
-		<label>Serie</label>
-		<input type="text" name="serie"/>
-		<br/>
-		
-		<input type="submit" value="Salvar"/>
-	
-	</form>
+<div class="topnav">
+      <div>
+        <!-- <a href="/sobre">Sobre nós</a> -->
+        <nav id="nav">
+          <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+            <span id="hamburger"></span>
+          </button>
+          <ul id="menu" role="menu">
+            <li><a href="consultaAluno.jsp">Aluno</a></li>
+            <li><a href="consultaTreino.jsp">Treino</a></li>
+            <li><a href="consultaMedidas.jsp">Medidas</a></li>
+            <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="alingMenu">
+        <a src="./Home.html"><img class="home" src="./img/img.png" /></a>
+        <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
+      </div>
+</div>
+
+	<div class="bodyAluno">
+      <div class="alignRegister">
+        <div>
+          <a href="consultaTreino.jsp" class="back">
+            < Voltar</a>
+              <h1>Cadastrar Treino</h1>
+              <form action="controllerTreino" method="post">
+                <input type="hidden" name="id" value="<%= request.getParameter(" id") %>">
+                <div class="register">
+                  <div class="line">
+                    <div class="group">
+                      <p>Nome do Exercicio:</p>
+                      <input type="text" name="nomeExercicio" />
+                    </div>
+                    <div class="group">
+                      <p>Tipo de Treino:</p>
+                      <input type="text" name="tipoTreino">
+                    </div>
+                  </div>
+                  <div class="line">
+                    <div class="group">
+                      <p>Ficha:</p>
+                      <input type="text" name="ficha">
+                    </div>
+                    <div class="group">
+                      <p>Repetição:</p>
+                      <input type="text" name="repeticao" />
+                    </div>
+                  </div>
+                  <div class="line">
+                    <div class="group">
+                      <p>Serie:</p>
+                      <input name="serie" type="text">
+                    </div>
+                  </div>
+
+                  <div class="line">
+                    <div class="btnRegister">
+                      <p></p>
+                      <input type="submit" value="Cadastrar" />
+                    </div>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
         <script>
