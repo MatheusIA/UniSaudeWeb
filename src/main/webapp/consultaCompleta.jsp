@@ -48,95 +48,118 @@
 			Treino treinofind = daoTreino.findById(Treino.class, treinosid).get();
 			treinos.add(treinofind);
 		}
-		
-		
-		
-	
 	%>
-<div class="container">
 	
-	<table class="table table-bordered">
-		
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Abdomen</th>
-				<th>Altura</th>
-				<th>Braco</th>
-				<th>Perna</th>
-				<th>Peso</th>
-		
-			</tr>
-		</thead>
-		<tbody>
-		
-		<%
-		
-		
-		for(MedidasCorporais medida: medidas){ 
-			
-		%> 
-		
-			<tr>
-				<td><%= medida.getId() %></td> 
-				
-				<td><%= medida.getAbdomen()%></td>  
-				
-				<td><%= medida.getAltura()%></td>
-				<td><%= medida.getBraco()%></td>
-				<td><%= medida.getPerna()%></td>
-				<td><%= medida.getPeso()%></td>
-								
-
-				
-			</tr>
-			<%
-				} 
-		
-			%> 
-			
-			
-		</tbody>
-	</table>
-	</div>
+	<div class="topnav">
+      <div>
+        <!-- <a href="/sobre">Sobre nós</a> -->
+        <nav id="nav">
+          <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+            <span id="hamburger"></span>
+          </button>
+          <ul id="menu" role="menu">
+            <li><a href="consultaAluno.jsp">Aluno</a></li>
+            <li><a href="consultaTreino.jsp">Treino</a></li>
+            <li><a href="consultaMedidas.jsp">Medidas</a></li>
+            <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="alingMenu">
+        <a src="./Home.html"><img class="home" src="./img/img.png" /></a>
+        <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
+      </div>
+    </div>
 	
-	<div class="container">
-	<table class="table table-bordered">
-		
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Exercicio</th>
-				<th>Tipo</th>
-					
-			</tr>
-		</thead>
-		<tbody>
-		
-		<%
-				
-			for(Treino treino: treinos){ 
-			
-		%> 
-		
-			<tr>
-				<td><%= treino.getId() %></td> 
-				
-				<td><%= treino.getNomeExecicio() %></td>  
-				
-				<td><%= treino.getTipoTreino() %></td>
+<div class="bodyAluno">
+      <div class="alignRegister">
+        <div>
+           <table id="customers">
+             <thead>
+               <tr>
+                 <th>ID</th>
+                 <th>Abdomen</th>
+                 <th>Altura</th>
+                 <th>Braco</th>
+                 <th>Perna</th>
+                 <th>Peso</th>
+               </tr>
+             </thead>
+             <tbody>
+               <% for(MedidasCorporais medida: medidas){ %>
+                 <tr>
+                   <td>
+                     <%= medida.getId() %>
+                   </td>
 
-			</tr>
-			<%
-				} 
-		
-			%> 
+                   <td>
+                     <%= medida.getAbdomen()%>
+                   </td>
 
-			
-			
-		</tbody>
-	</table>
-	</div>
-	
+                   <td>
+                     <%= medida.getAltura()%>
+                   </td>
+                   <td>
+                     <%= medida.getBraco()%>
+                   </td>
+                   <td>
+                     <%= medida.getPerna()%>
+                   </td>
+                   <td>
+                     <%= medida.getPeso()%>
+                   </td>
+                 </tr>
+                 <% } %>
+             </tbody>
+           </table>
+           <table id="customers">
+             <thead>
+               <tr>
+                 <th>ID</th>
+                 <th>Exercicio</th>
+                 <th>Tipo</th>
+               </tr>
+             </thead>
+             <tbody>
+               <% for(Treino treino: treinos){ %>
+
+                 <tr>
+                   <td>
+                     <%= treino.getId() %>
+                   </td>
+
+                   <td>
+                     <%= treino.getNomeExecicio() %>
+                   </td>
+
+                   <td>
+                     <%= treino.getTipoTreino() %>
+                   </td>
+                 </tr>
+                 <% } %>
+             </tbody>
+           </table>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
+<script>
+    const btnMobile = document.getElementById('btn-mobile');
+
+    function toggleMenu(event) {
+      if (event.type === 'touchstart') event.preventDefault();
+      const nav = document.getElementById('nav');
+      nav.classList.toggle('active');
+      const active = nav.classList.contains('active');
+      event.currentTarget.setAttribute('aria-expanded', active);
+      if (active) {
+        event.currentTarget.setAttribute('aria-label', 'Fechar Menu');
+      } else {
+        event.currentTarget.setAttribute('aria-label', 'Abrir Menu');
+      }
+    }
+
+    btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('touchstart', toggleMenu);
+</script>
