@@ -75,7 +75,7 @@
 <div class="bodyAluno">
       <div class="alignRegister">
         <div>
-           <table id="customers">
+           <table class="tabWidth" id="customers">
              <thead>
                <tr>
                  <th>Abdomen</th>
