@@ -114,7 +114,7 @@
                  <% } %>
              </tbody>
            </table>
-           <table id="customers">
+           <table class="tabWidth" id="customers">
              <thead>
                <tr>
                  <th>Exercicio</th>

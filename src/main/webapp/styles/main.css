@@ -281,6 +281,7 @@ a:hover {
 .bodyAluno .align {
   padding: 0 150px;
   color: #ffffff;
+  margin-bottom: 300px;
 }
 
 .bodyAluno .alignRegister {
@@ -289,7 +290,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 300px;
   margin-top: 20px;
 }
 
@@ -334,6 +335,22 @@ a:hover {
   font-weight: 500;
   cursor: pointer;
  }
+ 
+ .bodyAluno .alignRegister .register .line .btnRegister .btn {
+  display: flex;
+  width: 160px;
+  justify-content: center;
+  margin-top: 30px;
+  height: 40px;
+  align-items: center;
+  font-size: 17px;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 11px;
+  color: #ffff;
+  font-weight: 500;
+  cursor: pointer;
+}
 
 .bodyAluno .alignRegister .register input, select {
   width: 280px;
@@ -369,6 +386,10 @@ a:hover {
   transition: 1s;
 }
 
+.tabWidth {
+  width: 100%;
+  min-width: 1200px;
+}
 
 #customers {
 	font-family: Arial, Helvetica, sans-serif;

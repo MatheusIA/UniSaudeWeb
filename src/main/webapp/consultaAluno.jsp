@@ -73,6 +73,7 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
           <% for(Aluno aluno: alunos) {
     	  
