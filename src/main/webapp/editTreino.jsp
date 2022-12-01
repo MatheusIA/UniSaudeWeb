@@ -50,7 +50,7 @@
                     <h1>Editar Treino</h1>
 
                     <form action="controllerTreino" method="post">
-                      <input type="hidden" name="treinoid" value="<%= treinoid %>" />
+                      <input type="hidden" name="treinoid" value="<%=request.getParameter("id") %>" />
                       <div class="register">
                         <div class="line">
                           <div class="group">
@@ -61,11 +61,26 @@
                             <p>Tipo de Treino:</p>
                             <input type="text" name="tipoTreino" value="<%= treinos.getTipoTreino() %>" />
                           </div>
+                           <div class="group">
+                            <p>Ficha:</p>
+                            <input type="text" name="ficha" value="<%= treinos.getFicha() %>" />
+                          </div>
+                          <div class="group">
+                      <p>Repetição:</p>
+                      <input type="text" name="repeticao" value="<%=treinos.getRepeticao() %>" />
+                    </div>
+                  </div>
+                  <div class="line">
+                    <div class="group">
+                      <p>Serie:</p>
+                      <input name="serie" type="text" value="<%=treinos.getSerie()%>"/>
+                    </div>
+                  </div>
                         </div>
                         <div class="line">
                           <div class="btnRegister">
                             <p></p>
-                            <input type="submit" value="Salvar" />
+                            <button type="submit" value="<%=treinos.getId() %>" >Salvar</button>
                           </div>
                         </div>
 

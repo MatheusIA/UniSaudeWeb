@@ -371,11 +371,12 @@ a:hover {
 
 
 #customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  background: white;
-  box-shadow: 0px 3px 6px 1px #64646494;
+	font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 66px;
+    background: white;
+    box-shadow: 0px 3px 6px 1px #64646494;
 }
 
 #customers td, #customers th {

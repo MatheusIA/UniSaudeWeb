@@ -1,7 +1,9 @@
 package UniSaudeWeb.model;
 
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +16,7 @@ import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Treino {
@@ -26,12 +29,26 @@ public class Treino {
 	private String serie;
 	private String ficha;
 	
-	public String getFicha() {
-		return ficha;
+	@Enumerated(EnumType.STRING)
+	private TipoTreino tipoTreino;
+	
+	@ManyToOne
+	Aluno aluno;
+
+	public long getId() {
+		return id;
 	}
 
-	public void setFicha(String ficha) {
-		this.ficha = ficha;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNomeExecicio() {
+		return nomeExecicio;
+	}
+
+	public void setNomeExecicio(String nomeExecicio) {
+		this.nomeExecicio = nomeExecicio;
 	}
 
 	public String getRepeticao() {
@@ -50,38 +67,12 @@ public class Treino {
 		this.serie = serie;
 	}
 
-	@Enumerated(EnumType.STRING)
-	private TipoTreino tipoTreino;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Aluno aluno;
-	
-	
-	
-	public Aluno getAluno() {
-		return aluno;
+	public String getFicha() {
+		return ficha;
 	}
 
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-
-	public long getId() {
-		return id;
-	}
-
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getNomeExecicio() {
-		return nomeExecicio;
-	}
-
-	public void setNomeExecicio(String nomeExecicio) {
-		this.nomeExecicio = nomeExecicio;
+	public void setFicha(String ficha) {
+		this.ficha = ficha;
 	}
 
 	public TipoTreino getTipoTreino() {
@@ -91,6 +82,16 @@ public class Treino {
 	public void setTipoTreino(TipoTreino tipoTreino) {
 		this.tipoTreino = tipoTreino;
 	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+	
+	
 		
 	
 	

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import UniSaudeWeb.model.Aluno;
 import UniSaudeWeb.model.Treino;
 
 public class TreinoDao extends Dao<Treino, Long> {
@@ -28,6 +29,29 @@ public class TreinoDao extends Dao<Treino, Long> {
 		}
 		
 		return treinos;
+	}
+	
+	public Aluno getNome(Long id)
+	{
+		Aluno alunoId = new Aluno();
+		System.out.println(id);
+		try {
+			TypedQuery<Aluno> query = em.createQuery("SELECT Aluno FROM Treino", Aluno.class);
+			
+			//query.setParameter(1, id);
+		 alunoId = query.getSingleResult();
+		 System.out.println(query.getSingleResult()+"aaaaaa");
+			
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+		}
+		
+		
+			System.out.println(alunoId + "aaaaaaaaaaaaa");			
+		
+		
+		return alunoId;
 	}
 	
 	

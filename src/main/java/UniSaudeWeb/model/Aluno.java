@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embeddable;
@@ -16,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("1")
@@ -25,6 +27,12 @@ public class Aluno extends Pessoa{
 	private long idAluno;
 	@Column(length = 10)
 	private String matricula;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
+	List<MedidasCorporais> medidasCorporais;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "aluno")
+	List<Treino> treinos;
 	
 	@Enumerated(EnumType.STRING)
 	private NivelAluno nivelaluno;

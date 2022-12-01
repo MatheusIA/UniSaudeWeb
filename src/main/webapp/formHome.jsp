@@ -30,7 +30,7 @@
       </nav>
     </div>
     <div class="alingMenu">
-      <a src="./Home.html"><img class="home" src="./img/img.png" /></a>
+       <img class="home" src="./img/img.png" />
       <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
     </div>
   </div>

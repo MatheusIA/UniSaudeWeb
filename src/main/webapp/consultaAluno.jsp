@@ -70,6 +70,9 @@
             <th>Idade</th>
             <th>Nivel</th>
             <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <% for(Aluno aluno: alunos) {
     	  
@@ -86,17 +89,24 @@
           <td>
 	          <a class="btn btn-secondary btn-sm" 
 	          	href="editAluno.jsp?id=<%=aluno.getId()%>">Editar</a>
-	          	
+	         </td> 	
+	         <td>
 	          <a class="btn btn-secondary btn-sm" 
 	          	href="formMedidas.jsp?id=<%=aluno.getId()%>"> Criar Medidas</a>
-	          	
+	          </td>	
+	          <td>
 	          <a class="btn btn-secondary btn-sm" 
 	          	href="formTreino.jsp?id=<%=aluno.getId()%>">Criar Treino</a>
-	          	
+	          </td>	
+	          <td>
 	          <a class="btn btn-secondary btn-sm" 
 	           	href="consultaCompleta.jsp?id=<%=aluno.getId()%>">Consulta Completa</a>
-
 	         </td>
+	         <td>
+	         <a class="btn btn-secondary btn-sm" 
+	           	href="${pageContext.request.contextPath}/controllerAluno?id=<%= aluno.getId() %>">Excluir</a>
+	         </td>
+	         
         </tr>
         <% }  %>
         </table>

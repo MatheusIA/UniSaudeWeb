@@ -21,6 +21,7 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
 	crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./styles/main.css">
+	
 <title>Consulta Completa</title>
 </head>
 <body>
@@ -66,7 +67,7 @@
         </nav>
       </div>
       <div class="alingMenu">
-        <a src="./Home.html"><img class="home" src="./img/img.png" /></a>
+        <img class="home" src="./img/img.png" />
         <!--     <a class="active" href="#home"><img class="loginIcon" src="./img/login.png"/> Entrar</a> -->
       </div>
     </div>
@@ -77,7 +78,6 @@
            <table id="customers">
              <thead>
                <tr>
-                 <th>ID</th>
                  <th>Abdomen</th>
                  <th>Altura</th>
                  <th>Braco</th>
@@ -89,9 +89,6 @@
              <tbody>
                <% for(MedidasCorporais medida: medidas){ %>
                  <tr>
-                   <td>
-                     <%= medida.getId() %>
-                   </td>
 
                    <td>
                      <%= medida.getAbdomen()%>
@@ -117,7 +114,6 @@
            <table id="customers">
              <thead>
                <tr>
-                 <th>ID</th>
                  <th>Exercicio</th>
                  <th>Tipo</th>
                </tr>
@@ -126,10 +122,7 @@
                <% for(Treino treino: treinos){ %>
 
                  <tr>
-                   <td>
-                     <%= treino.getId() %>
-                   </td>
-
+                   
                    <td>
                      <%= treino.getNomeExecicio() %>
                    </td>
