@@ -1,0 +1,86 @@
+Tabela Aparelho
+
+CREATE TABLE `aparelhos` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `funcaoAparelho` varchar(255) DEFAULT NULL,
+  `nomeAparelho` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+Tabela Medidas
+
+CREATE TABLE `medidascorporais` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `Abdomen` double NOT NULL,
+  `Altura` double NOT NULL,
+  `Braco` double NOT NULL,
+  `DataAvaliacao` varchar(255) DEFAULT NULL,
+  `IMC` double NOT NULL,
+  `Perna` double NOT NULL,
+  `Peso` double NOT NULL,
+  `aluno_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK6kf88chg9w8x4fqxyx98hm8mp` (`aluno_id`),
+  CONSTRAINT `FK6kf88chg9w8x4fqxyx98hm8mp` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+Tabela Pessoa
+
+CREATE TABLE `pessoa` (
+  `Tipo_Pessoa` int NOT NULL,
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `bairro` varchar(255) DEFAULT NULL,
+  `cep` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `idade` int NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `numerocasa` varchar(255) DEFAULT NULL,
+  `rua` varchar(255) DEFAULT NULL,
+  `idAluno` bigint DEFAULT NULL,
+  `matricula` varchar(10) DEFAULT NULL,
+  `nivelaluno` varchar(255) DEFAULT NULL,
+  `formacao` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_ip6c031cyuplfacn09ca3twtm` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+Tabela Treino
+
+CREATE TABLE `treino` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `ficha` varchar(255) DEFAULT NULL,
+  `nomeExecicio` varchar(255) DEFAULT NULL,
+  `repeticao` varchar(255) DEFAULT NULL,
+  `serie` varchar(255) DEFAULT NULL,
+  `tipoTreino` varchar(255) DEFAULT NULL,
+  `aluno_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK4qrpl8210q2kevj7wla60m87u` (`aluno_id`),
+  CONSTRAINT `FK4qrpl8210q2kevj7wla60m87u` FOREIGN KEY (`aluno_id`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+Tabela Treino_Aluno
+
+CREATE TABLE `treino_aluno` (
+  `idAluno` bigint NOT NULL,
+  `idTreino` bigint NOT NULL,
+  PRIMARY KEY (`idAluno`,`idTreino`),
+  KEY `FKgl1dyjo12gnlo00ak6t1ktvbj` (`idTreino`),
+  CONSTRAINT `FKgl1dyjo12gnlo00ak6t1ktvbj` FOREIGN KEY (`idTreino`) REFERENCES `treino` (`id`),
+  CONSTRAINT `FKk2ng6ukuooar2wns52hr9hnu1` FOREIGN KEY (`idAluno`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+Tabela Treino_Aparelho
+
+CREATE TABLE `treinoaparelho` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `aparelhos_id` bigint DEFAULT NULL,
+  `treino_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK16u0lfw2f72goo2k56edhq9cn` (`aparelhos_id`),
+  KEY `FKpfchajd1wv94itomvsw5pu4g9` (`treino_id`),
+  CONSTRAINT `FK16u0lfw2f72goo2k56edhq9cn` FOREIGN KEY (`aparelhos_id`) REFERENCES `aparelhos` (`id`),
+  CONSTRAINT `FKpfchajd1wv94itomvsw5pu4g9` FOREIGN KEY (`treino_id`) REFERENCES `treino` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

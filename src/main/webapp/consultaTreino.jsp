@@ -59,7 +59,7 @@
 					<th>Tipo Treino</th>
 
 					<th></th>
-					<th></th>
+				
 				</tr>
 				<%
 				for (Treino treino : treinos) {

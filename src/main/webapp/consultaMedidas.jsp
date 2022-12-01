@@ -65,7 +65,7 @@
               <th>Perna</th>
               <th>Peso</th>
               <th></th>
-              <th></th>
+              
             </tr>
             <% for(MedidasCorporais medida: medidas){ %>
               <tr>
