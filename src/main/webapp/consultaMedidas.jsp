@@ -38,9 +38,9 @@
             </button>
             <ul id="menu" role="menu">
               <li><a href="consultaAluno.jsp">Aluno</a></li>
-              <li><a href="formTreino.jsp">Treino</a></li>
-              <li><a href="formMedidas.jsp">Medidas</a></li>
-              <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+            <li><a href="consultaTreino.jsp">Treino</a></li>
+            <li><a href="consultaMedidas.jsp">Medidas</a></li>
+            <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
             </ul>
           </nav>
         </div>
@@ -51,10 +51,7 @@
       </div>
       <div class="bodyAluno">
         <div class="align">
-          <h1>Medidas</h1>
-          <div class="alunoBtn">
-            <button class="button"><a href="formMedidas.jsp">Nova Medida</a></button>
-          </div>
+          
           <div class="dont">
             <!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
             <h2>Medidas cadastradas</h2>
@@ -100,9 +97,7 @@
 
                 </td>
 
-                <td>
-				<a class="btn btn-secondary btn-sm" href="${pageContext.request.contextPath}/controllerMedidas?id=<%= medida.getId() %>">Excluir</a>
-				</td>
+                
 			</tr>
 			<%
 				} 

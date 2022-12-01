@@ -20,8 +20,8 @@
 	<%
 	TreinoDao dao = new TreinoDao();
 	List<Treino> treinos = dao.findAll(Treino.class);
-	Long alunoId = dao.getNome(22L);
-	System.out.println(alunoId + "aaaaaaaaaaaaa");			
+	//Long alunoId = dao.getNome(22L);
+	//System.out.println(alunoId + "aaaaaaaaaaaaa");			
 
 	%>
 	<div class="topnav">
@@ -34,9 +34,9 @@
 				</button>
 				<ul id="menu" role="menu">
 					<li><a href="consultaAluno.jsp">Aluno</a></li>
-					<li><a href="formTreino.jsp">Treino</a></li>
-					<li><a href="formMedidas.jsp">Medidas</a></li>
-					<li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+		            <li><a href="consultaTreino.jsp">Treino</a></li>
+		            <li><a href="consultaMedidas.jsp">Medidas</a></li>
+		            <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -47,12 +47,7 @@
 	</div>
 	<div class="bodyAluno">
 		<div class="align">
-			<h1>Treinos</h1>
-			<div class="alunoBtn">
-				<button class="button">
-					<a href="formTreino.jsp">Novo Treino</a>
-				</button>
-			</div>
+			
 			<div class="dont">
 				<!-- <h2>Nenhum aluno cadastrado no momento...</h2> -->
 				<h2>Treinos cadastrados</h2>
@@ -62,7 +57,7 @@
 					<th>ID</th>
 					<th>Nome Exercicio</th>
 					<th>Tipo Treino</th>
-					<th>Nome Aluno</th>
+
 					<th></th>
 					<th></th>
 				</tr>
@@ -77,15 +72,10 @@
 
 					<td><%=treino.getTipoTreino()%></td>
 					
-					<td><%=alunoId%></td>
 
 					<td><a class="btn btn-secondary btn-sm"
 						href="editTreino.jsp?id=<%=treino.getId()%>">Editar</a></td>
-					<td><a class="btn btn-secondary btn-sm"
-						href="formAparelho.jsp?id=<%=treino.getId()%>">Aparelhos</a></td>
-					<td><a class="btn btn-secondary btn-sm"
-						href="${pageContext.request.contextPath}/controllerTreino?id=<%=treino.getId()%>">Excluir</a>
-					</td>
+					
 				</tr>
 				<%
 				}

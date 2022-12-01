@@ -51,11 +51,8 @@ public class ServletAparelhos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		AparelhosDao dao = new AparelhosDao();
-		TreinoDao daoTreino = new TreinoDao();
 		
-		long treinos = Long.parseLong(request.getParameter("id"));
-		Treino treino = daoTreino.findById(Treino.class, treinos).get();
-		
+	
 		if (request.getParameter("aparelhoid") == null) {		
 			
 			Aparelhos novoAparelho = new Aparelhos();

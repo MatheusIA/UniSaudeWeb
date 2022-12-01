@@ -31,9 +31,9 @@
                 </button>
                 <ul id="menu" role="menu">
                   <li><a href="consultaAluno.jsp">Aluno</a></li>
-                  <li><a href="consultaTreino.jsp">Treino</a></li>
-                  <li><a href="consultaMedidas.jsp">Medidas</a></li>
-                  <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
+		            <li><a href="consultaTreino.jsp">Treino</a></li>
+		            <li><a href="consultaMedidas.jsp">Medidas</a></li>
+		            <li><a href="consultaAparelho.jsp">Aparelhos</a></li>
                 </ul>
               </nav>
             </div>
